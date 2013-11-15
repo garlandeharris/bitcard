@@ -11,11 +11,9 @@ class User(Base):
     name = Column(String)
     password = Column(String)
     def __init__(self, name=None, password=None):
-        from hashlib import sha256
-        from random import random
+        import bcrypt
         self.name = name
-        salt = sha256(str(random())).hexdigest()
-        self.password = "sha256${salt}${hash}".format(salt=salt, hash=sha256(password + salt).hexdigest())
+        self.password = bcrypt.hashpw(password, bcrypt.gensalt())
     def __repr__(self):
         return "<User(name='{0}', password='{1}')>".format(self.name, self.password)
 
