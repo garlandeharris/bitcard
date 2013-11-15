@@ -1,0 +1,9 @@
+# App
+web
+wsgilog
+jinja2
+anycoin
+
+# DB
+sqlalchemy
+psycopg
