@@ -4,6 +4,9 @@ wsgilog
 jinja2
 anycoin
 
+# Sec
+bcrypt
+
 # DB
 sqlalchemy
 psycopg
