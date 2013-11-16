@@ -13,9 +13,11 @@ engine = create_engine("postgresql+psycopg2://{user}:{password}@{host}:{port}/{d
                             port=db['port'],
                             db_name=db['name']),
                         convert_unicode=True)
+
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
+
 Base = declarative_base()
 Base.query = db_session.query_property()
 
